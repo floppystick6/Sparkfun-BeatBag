@@ -1,7 +1,5 @@
 # Sparkfun-BeatBag
-Crowdsourcing an algorithm 
-
-For more info see https://www.sparkfun.com/news/2115
+Crowdsourcing an algorithm. For more info see https://www.sparkfun.com/news/2115
 
 AlgorithmOnly - is the code needed to implement the algorithm
 
