@@ -1,0 +1,94 @@
+
+
+//Used in new CheckForHit routine
+const int JThresholdPin = 0; 	//analog pin 0
+const int MinTimePin = 1;		//analog pin 1
+long curTimeStamp = 0;
+int curX = 0;
+int curY = 0;
+int curZ = 0;
+long prevTimeStamp = 0;
+int prevX = 0;
+int	prevY = 0;
+int prevZ = 0;
+long deltaT = 0;
+int deltaX = 0;
+int deltaY = 0;
+int delatZ = 0;
+float MagDeltaV = 0;
+float Jerk = 0;
+const int JTmin = 450;				//Minimum Jerk Threshold based on spreadsheet data
+const int JTmax = 1500;				//Maximum Jerk Threshold based on spreadsheet data
+const int MTmin = 30;				//Minimum Time Between hits based on spreadsheet data
+const int MTmax = 500;				//Maximum Time Between hits based on spreadsheet data
+int MIN_JERK_THRESHOLD = 650; 		//650 based on 4g amplification in accelerometer
+int MIN_TIME_BTWN_HITS = 60;		//60ms based on spreadsheet data
+
+
+
+
+void loop()
+{
+  //Check the accelerometer
+  //get the current TimeStamp and current X, Y, and Z raw values
+  curTimeStamp = getAccelData()			//left off the ; because I am not sure what your getAccelData() subroutine looks like. 
+  curX = getAccelData()					//left off the ; because I am not sure what your getAccelData() subroutine looks like.
+  curY = getAccelData()					//left off the ; because I am not sure what your getAccelData() subroutine looks like.
+  curZ = getAccelData()					//left off the ; because I am not sure what your getAccelData() subroutine looks like.
+  
+  //check the current data to see if there was a hit
+  CheckForHit();
+}
+
+
+
+void CheckForHit(){
+	//time since last accel reading
+	deltaT = curTimeStamp - prevTimeStamp;	
+
+	//change from last accel reading
+	deltaX = curX - prevX;						
+	deltaY = curY - prevY;
+	deltaZ = curZ - prevZ;
+	
+	//Save current accel reading to use next time
+	prevTimeStamp = curTimeStamp;
+	prevX = curX;
+	prevY = curY;
+	prevZ = curZ;
+	
+	//calculate the magnitude of the delta vector
+	MagDeltaV = sqrt((deltaX * deltaX)+(deltaY*deltaY)+(deltaZ*deltaZ));	 
+	
+	//calculate the rate of change in acceleration to get the jerk
+	Jerk = MagDelatV / delatT;	
+
+  	//the analogReads below would be needed to adjust the threshold variables because they will change
+	//depending on the mounting location of the accelerometer
+	//could put this in the setup() routine to only run once at reset.
+	//uncomment to enable. Based on the spreadsheet values, 650 and 60 (at beginning of code) seems to work. 
+		//MIN_JERK_THRESHOLD = map(analogRead(JThresholdPin), 0, 1023, JTmin, JTmax);
+		//MIN_TIME_BTWN_HITS = map(analogRead(MinTimePin), 0, 1023, MTmin, MTmax);
+  	
+	
+	if (Jerk > MIN_JERK_THRESHOLD)
+	{
+		//We have a potential hit!
+
+		currentTime = millis();
+		if ((unsigned long)(currentTime - lastHitTime) >= MIN_TIME_BTWN_HITS)
+		{
+		//We really do have a hit!
+		hitCounter++;
+
+		lastHitTime = millis();
+
+		//Serial.print("Hit: ");
+		//Serial.println(hitCounter);
+
+		if (displayOn == false) displayOn = true;
+
+		printHits(); //Updates the display
+		}
+	}
+}
