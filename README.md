@@ -7,6 +7,8 @@ AlgorithmOnly - is the code needed to implement the algorithm
 
 Code+Algorithm - is Nate's original code with the algorithm added in
 
+
+--------------------
 This is my algorithm:
 
 1) Read the accelerometer and get a 3 dimensional vector, call it curV. 
