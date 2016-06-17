@@ -42,7 +42,7 @@
  not enough. Swapped out to new accel. Added 100 ohm inline resistors to accel and 4.7k resistors from SDA/SCL to 5V.
  Reinforced connection from accel to RedBoard.
  
- 6/17/16 - Added my algorithm and commented out some of the previous filtering - floppystick6
+ 6/17/16 - Added new algorithm in the CheckForHit() routine and commented out some previous filtering - floppystick6
 
  */
 
