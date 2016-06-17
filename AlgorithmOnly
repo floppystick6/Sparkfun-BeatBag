@@ -25,6 +25,8 @@ int MIN_JERK_THRESHOLD = 650; 		//650 based on 4g amplification in accelerometer
 int MIN_TIME_BTWN_HITS = 60;		//60ms based on spreadsheet data
 
 
+void setup(){
+}
 
 
 void loop()
