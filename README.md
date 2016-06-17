@@ -19,16 +19,16 @@ This is my algorithm:
 
 4) Find the Magnitude of ∆V (Mag∆V) to see how much the curV changed from the prevV.
 
-5) Divide Mag∆V by ∆t to find the rate of change in the acceleration. This is the Jerk (https://en.wikipedia.org/wiki/Jerk_(physics))
+5) Divide Mag∆V by ∆t to find the rate of change in the acceleration. This is the Jerk. (https://en.wikipedia.org/wiki/Jerk_(physics))
 
 6) Then check this Jerk against a minimum threshold to filter out jerks caused by incidental "accelerations". 
 
   - Based on the raw data provided, I found 650 to be a good Jerk minimum threshold. 
-  - 
+
 7) If the Jerk is greater than the minimum threshold, then check and make sure that the Jerk occurred x amount of time after the last
 one. 
   - This is to filter out the bag bouncing back and forth after a single hit. 
-  - 
+
   - Based on the raw data provided, I found 60ms to be a good minimum time between Jerks. 
-  - 
+
 8) If the Jerk passes both of these tests, then we can consider it a HIT. 
