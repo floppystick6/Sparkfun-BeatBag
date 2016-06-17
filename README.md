@@ -52,3 +52,5 @@ one.
   - Based on the raw data provided, I found 60ms to be a good minimum time between Jerks. 
 
 8) If the Jerk passes both of these tests, then we can consider it a HIT. 
+
+9) Then save the curV as preV to use with the next accelerometer read. 
