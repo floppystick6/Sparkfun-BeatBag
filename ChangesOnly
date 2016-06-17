@@ -2,7 +2,7 @@
 
 //Used in new CheckForHit routine
 const int JThresholdPin = 0; 	//analog pin 0
-const int MinTimePin = 1;		//analog pin 1
+const int MinTimePin = 1;	//analog pin 1
 long curTimeStamp = 0;
 int curX = 0;
 int curY = 0;
@@ -17,10 +17,10 @@ int deltaY = 0;
 int delatZ = 0;
 float MagDeltaV = 0;
 float Jerk = 0;
-const int JTmin = 450;				//Minimum Jerk Threshold based on spreadsheet data
-const int JTmax = 1500;				//Maximum Jerk Threshold based on spreadsheet data
-const int MTmin = 30;				//Minimum Time Between hits based on spreadsheet data
-const int MTmax = 500;				//Maximum Time Between hits based on spreadsheet data
+const int JTmin = 450;			//Minimum Jerk Threshold based on spreadsheet data
+const int JTmax = 1500;			//Maximum Jerk Threshold based on spreadsheet data
+const int MTmin = 30;			//Minimum Time Between hits based on spreadsheet data
+const int MTmax = 500;			//Maximum Time Between hits based on spreadsheet data
 int MIN_JERK_THRESHOLD = 650; 		//650 based on 4g amplification in accelerometer
 int MIN_TIME_BTWN_HITS = 60;		//60ms based on spreadsheet data
 
@@ -32,9 +32,9 @@ void loop()
   //Check the accelerometer
   //get the current TimeStamp and current X, Y, and Z raw values
   curTimeStamp = getAccelData()			//left off the ; because I am not sure what your getAccelData() subroutine looks like. 
-  curX = getAccelData()					//left off the ; because I am not sure what your getAccelData() subroutine looks like.
-  curY = getAccelData()					//left off the ; because I am not sure what your getAccelData() subroutine looks like.
-  curZ = getAccelData()					//left off the ; because I am not sure what your getAccelData() subroutine looks like.
+  curX = getAccelData()				//left off the ; because I am not sure what your getAccelData() subroutine looks like.
+  curY = getAccelData()				//left off the ; because I am not sure what your getAccelData() subroutine looks like.
+  curZ = getAccelData()				//left off the ; because I am not sure what your getAccelData() subroutine looks like.
   
   //check the current data to see if there was a hit
   CheckForHit();
