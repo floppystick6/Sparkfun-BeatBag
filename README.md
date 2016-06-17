@@ -12,7 +12,22 @@ Code+Algorithm - is Nate's original code with the algorithm added in
 This is my algorithm:
 Find the rate of change and debounce it. 
 
+With the raw data provided, these are the number of hits that my algorithm gives me.
 
+3-77hits → 77
+
+4-81hits → 80
+
+5-93hits → **94**
+
+6-79hits → **76**
+
+Mystery1 → 240
+
+Mystery2 → 213
+
+
+----------------------
 
 This is how I implemented it:
 
@@ -26,7 +41,7 @@ This is how I implemented it:
 
 5) Divide Mag∆V by ∆t to find the rate of change in the acceleration. This is the Jerk. (https://en.wikipedia.org/wiki/Jerk_(physics))
 
-6) Then check this Jerk against a minimum threshold to filter out jerks caused by incidental "accelerations". 
+6) Then check this Jerk against a minimum threshold to filter out jerks caused by incidental "accelerations" (non-hits). 
 
   - Based on the raw data provided, I found 650 to be a good Jerk minimum threshold. 
 
