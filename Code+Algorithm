@@ -181,9 +181,9 @@ void loop()
   //Check the accelerometer
   //get the current TimeStamp and current X, Y, and Z raw values
   curTimeStamp = getAccelData()		 	//left off the ; because I am not sure what your getAccelData() subroutine looks like. 
-  curX = getAccelData()					    //left off the ; because I am not sure what your getAccelData() subroutine looks like.
-  curY = getAccelData()					    //left off the ; because I am not sure what your getAccelData() subroutine looks like.
-  curZ = getAccelData()					    //left off the ; because I am not sure what your getAccelData() subroutine looks like.
+  curX = getAccelData()				//left off the ; because I am not sure what your getAccelData() subroutine looks like.
+  curY = getAccelData()				//left off the ; because I am not sure what your getAccelData() subroutine looks like.
+  curZ = getAccelData()				//left off the ; because I am not sure what your getAccelData() subroutine looks like.
   
   //check the current data to see if there was a hit
   CheckForHit();
