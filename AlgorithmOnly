@@ -14,7 +14,7 @@ int prevZ = 0;
 long deltaT = 0;
 int deltaX = 0;
 int deltaY = 0;
-int delatZ = 0;
+int deltaZ = 0;
 float MagDeltaV = 0;
 float Jerk = 0;
 const int JTmin = 450;			//Minimum Jerk Threshold based on spreadsheet data
@@ -61,7 +61,7 @@ void CheckForHit(){
 	MagDeltaV = sqrt((deltaX * deltaX)+(deltaY*deltaY)+(deltaZ*deltaZ));	 
 	
 	//calculate the rate of change in acceleration to get the jerk
-	Jerk = MagDelatV / delatT;	
+	Jerk = MagDeltaV / deltaT;	
 
   	//the analogReads below would be needed to adjust the threshold variables because they will change
 	//depending on the mounting location of the accelerometer
