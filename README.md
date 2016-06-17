@@ -10,6 +10,11 @@ Code+Algorithm - is Nate's original code with the algorithm added in
 
 --------------------
 This is my algorithm:
+Find the rate of change and debounce it. 
+
+
+
+This is how I implemented it:
 
 1) Read the accelerometer and get a 3 dimensional vector, call it curV. 
 
